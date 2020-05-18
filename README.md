@@ -32,4 +32,4 @@ applications including:
 - Shock, vibration, and temperature monitoring of industrial equipment
 - Theft, temperature monitoring of storage/shipping containers
 
-This IoT Platform is a PCB version of a reference design developed for the multi-technology silicon interposer platform.
+This IoT Platform is a PCB version of a reference design developed for the multi-technology silicon interposer platform. Is it provided as-is. Working samples were created and tested successfully.
