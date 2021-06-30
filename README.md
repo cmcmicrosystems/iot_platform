@@ -32,9 +32,17 @@ applications including:
 - Shock, vibration, and temperature monitoring of industrial equipment
 - Theft, temperature monitoring of storage/shipping containers
 
-This IoT Platform is a PCB version of a reference design developed for the multi-technology silicon interposer platform. It consists of:
-- PCB design files for the Mentor Graphics PADS environment
+This IoT Platform consists of:
+- PCB design files for the KiCad v5.1.9 design environment.
 - Source code and binary format firmware
 - Android mobile app for data logging via smart phone
 
-This project is provided as-is. Working samples were created and tested successfully.
+This project is provided as-is. Working samples (Alpha version) were created and tested successfully.
+
+Prevents versions can be retreived by selecting the appropriate tag on Github at github.com/cmcmicrosystems/iot_platform
+
+Versions:
+
+Beta : Current KiCAD v5.1.9. In manufacturing.  Changes made to sensors and crystals in BoM due to covid chip shortages.  New firmware for TMP100 temperature sensor (replacement for SI7051 in alpha).  Manufacturing information included.
+
+Alpha : Initial version in Mentor Graphics PADS.  tested on a PCB, functional.

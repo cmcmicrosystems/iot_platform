@@ -1,0 +1,61 @@
+The Design flow used was KiCad v(5.1.9)-1 [Eeschema and Pcbnew].
+
+Directories within IoT2021A_FabricationOutputs.zip
+1) /Bill_of_Materials - Bill of Materials including special notes about 'do not place' and components CMC Microsystems would provide (including quantity)
+2) /Drill_files
+3) /plots and /plots_UsingProtelExtensions - both of these directories contain identical gerber files.  Use one of them.  
+   3a) the file, IoT_2021A-Edge_Cuts.gbr provides the board outline.
+4) /XY_position_files - XY/mirror coordinate data.
+5) /KiCAD_Board_File - the KiCAD 5.1.9 Pcbnew pcb board file.
+
+DRAWING VIEW
+1) When AE1 (the Antennova RUFA Antenna) is in the top-right-corner, the view is of the FRONT side of the board.  (The coin-cell battery clip is on the bottom of the board, BACK side.)
+2) Board Outline: In /plots directory, "IoT_2021A-Edge_Cuts.gbr"
+
+DRILL (files in /Drill_files subdirectory)
+1) Standard tolerance of +/- 2mils on finished hole diameter.
+2) Plated Through Holes (PTH), two types. larger test points ('TPx') and smaller vias
+
+   A) Test Points - marked as 'o' in map file, quantity 4 (two round pads, two square pads, circular drill hole) 
+      a) toolsize=30 mils drill diameter - note the imperial drill size dimension.
+      b) after plating, minimum allowable copper in PTH shall be 1 mil.
+
+   B) Vias - marked as '*' in map file, quantity 127 
+      a) toolsize=13 mils - note the imperial drill size dimension.
+         A tolerance of -3mils off the 13mils toolsize (that is, down to 10mils drillsize) is acceptable to achieve the required annular ring width.
+         ****Report chosen drill size****
+      b) after plating, minimum allowable copper in via shall be 1 mil.
+ 
+3) Component U1 (The CC2640 processor), has 5 vias-in-pad within the centre grounding pad, pad #33.  The vias are the same size as all other vias (with the exception of the test points).
+4) Non-Plated through Holes (NPTH): none  The map ('*-NPTH-drl_map.pdf') and drill file ('*-NPTH.drl')are empty/blank for these.
+
+
+LINE WIDTHS & CONTROLED IMPEDANCE MATCHING
+1) Line width reduction due to pinholes, nicks, or line shrinkage 10% max on all controlled impedance lines.
+2) On Layer 1 = Front = TOP, there are only 3 controlled impedance lines.  
+   a) U1/Pin-1 to U4 Pin-4
+   b) U1/Pin-1 to U4 Pin-3
+   c) U4/Pin-1 to AE1 Pin-2 <<<Most important to hit 50 Ohms on this trace to the Antenna.
+   A Graphic of the Antenna feed is in the Excel Stackup file, STACKUP_IoT2021A_ForFab.xlsx.
+2) Layer 1 & 6 - 1/2 Oz Copper gold plated, hard.
+3) All other layers, 1 Oz Copper.
+4) The stackup is asymetrical.  Add copper fill on layer 4 to balance the layout <<<I need to do this.
+
+PASTEMASK
+1) Facility may adjust pastemask size. Report each change of pastemask size to the client. 
+
+SOLDERMASK
+1) Black on both sides
+2) Soldermask opennings are 2.5mil but may be altered by the manufacturer.  Whenever convenient, report soldermask changes to client.
+
+SILKSCREEN
+1) WHITE, EPOXY OR ACRYLIC INK.
+
+COMPONENTS
+1) All components were chosen to be lead-free, ROHS compliant.
+2) In Special Notes of BoM - CMC Microsystems will supply: 
+    2a) 50x OPT3002DNPT (Digikey part number 296-44600-1-ND)
+    2b) 24x CC2640F128RSMT (Digikey part number 296-41116-1-ND) (out of the 48 needed)
+3) All remaining components, including the balance of CC2640 components, are to be supplied by the PCB Assembly facility.
+
+

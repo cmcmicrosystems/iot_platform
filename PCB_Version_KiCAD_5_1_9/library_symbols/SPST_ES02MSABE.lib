@@ -1,0 +1,26 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# ES02MSABE
+#
+DEF ES02MSABE S 0 30 Y Y 1 F N
+F0 "S" 200 250 50 H V L CNN
+F1 "ES02MSABE" 200 150 50 H V L CNN
+F2 "ES02MSABE" 200 -400 50 H I L CNN
+F3 "https://www.ckswitches.com/media/1421/es.pdf" 200 -500 50 H I L CNN
+F4 "Slide Switches R/A SPST OFF-NONE-ON" 200 -600 50 H I L CNN "Description"
+F5 "6.65" 200 -300 50 H I L CNN "Height"
+F6 "611-ES02MSABE" 200 -800 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/CK/ES02MSABE?qs=V0X8KZBlWwLZuTU6OqoG%2FQ%3D%3D" 200 -900 50 H I L CNN "Mouser Price/Stock"
+F8 "C & K COMPONENTS" 200 -1000 50 H I L CNN "Manufacturer_Name"
+F9 "ES02MSABE" 200 -1100 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 800 100 800 -200 200 -200 200 100 N
+X NO 1 0 -100 200 R 50 50 0 0 P
+X COM 3 0 0 200 R 50 50 0 0 P
+X MP1 MP1 1000 -100 200 L 50 50 0 0 P
+X MP2 MP2 1000 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+#End Library
