@@ -1,1 +1,8 @@
-Source Code coming soon
+bluetooth low energy reference design based on the TI simple broadcaster example. What the application does is to read three sensors (temperature,  light, and accelerometer) and send the data to mobile app Sensor scanner via bluetooth. The MCU is set to inactive initally until it is activated by shaking the mote, and then the mote starts sensing and transmit the sensors data to the Sensor scanner app.
+
+The reference design has been built, programmed, and tested on the IoT Mote with the following tools and SDK:  <br />   
+a). TI CCS v7.4. It is downloadable here: https://software-dl.ti.com/ccs/esd/documents/ccs_downloads.html <br />b). TI BLE SDK ble_sdk_2_02_00_31. It is downloadable from TI BLE-STACK-ARCHIVE: https://www.ti.com/tool/BLE-STACK-ARCHIVE <br />c). TI Flash programmer 2. it is downloadable here: https://www.ti.com/tool/FLASH-PROGRAMMER#downloads <br />d). Digilent Waveforms v3.16.3. It is downloadable here: 2015 https://store.digilentinc.com/digilent-waveforms/ <br />e). Sensor Scanner mobile app that is downloable from the IoT Mote repository <br />  
+
+
+Please note: <br />  
+1). Install all TI tools/sdk in its default intallation directory to avoid changes to the configurations of the reference design projects <br />2). After you download both BLEsensor_cc2650lp_app and BLEsensor_cc2650lp_stack, you need to build the stack project first using ccs, then build the app project.<br />3). Instructions on how to build the projects, program the mote, and test the reference design on the mote with the Sensor scanner app are provided in the document Programming BLE Sensor node with JTAG. <br />4). The mote requires a 3.3v external power supply. One approach is to use Digilent Analog Discovery 2 device to provide the power during the development phase. You may use battery to operate the mote after it is programmed.  <br />
