@@ -1,1 +1,1 @@
-Firmware, binary coming soon.
+Users may use the pre-built firmware to test the IoT mote
