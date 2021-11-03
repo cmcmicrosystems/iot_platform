@@ -69,14 +69,15 @@ extern "C"
 /*********************************************************************
  * MACROS
  */
-#define BEACON_UPDATE_INTERVAL      1000
+//#define BEACON_UPDATE_INTERVAL      1000
+#define BEACON_UPDATE_INTERVAL      5000       //5s
 
 // Internal Events for RTOS application
 #define SBB_STATE_CHANGE_EVT                  0x0001
 #define SBB_KEY_CHANGE_EVT                    0x0002
 #define SBB_ADV_CHANGE_EVT                    0x0004
 #define SBB_OPT_INT_EVT                       0x0008
-#define SBB_SI705_INT_EVT                     0x0010
+#define SBB_TMP100_INT_EVT                    0x0010
 #define SBB_ADXL_INT_EVT                      0x0020
 /*********************************************************************
  * FUNCTIONS

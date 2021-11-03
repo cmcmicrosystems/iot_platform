@@ -5,6 +5,7 @@
  *
  *  Created on: 14-Nov-2017
  *      Author: Niraj
+ *      Modified in Sept. 2021 by Olive
  */
 
 #include "adxl362.h"
@@ -117,7 +118,8 @@ void ADXL362_initialize(SPI_Handle *handle){
 
     hSpi = *handle;
 
-    volatile uint32_t wait = 5000;
+    //volatile uint32_t wait = 5000;
+    volatile uint32_t wait = 500;
     // Initialize pins
     PIN_open(&hAxlPin, xlPinCfg );
     PIN_registerIntCb(&hAxlPin, hAdxlPinIntCb);
@@ -130,8 +132,16 @@ void ADXL362_initialize(SPI_Handle *handle){
     xl362writeRegister(TIME_ACT,0x32);//
     xl362writeRegister(THRESH_INACT_L,0x64);//config inactivity threshold
     xl362writeRegister(THRESH_INACT_H,0x00);//
-    xl362writeRegister(TIME_INACT_L,0xDC);// Inactivity time threshold
-    xl362writeRegister(TIME_INACT_H,0x05);// 15sec inactivity at ODR=100Hz
+   // xl362writeRegister(TIME_INACT_L,0xDC);// Inactivity time threshold
+    //xl362writeRegister(TIME_INACT_H,0x05);// 15sec inactivity at ODR=100Hz
+
+    xl362writeRegister(TIME_INACT_L,0xE8);// Inactivity time threshold
+    xl362writeRegister(TIME_INACT_H,0x03);// 10sec inactivity at ODR=100Hz
+
+       //xl362writeRegister(TIME_INACT_L,0xF4);// Inactivity time threshold
+       //xl362writeRegister(TIME_INACT_H,0x01);// 5sec inactivity at ODR=100Hz
+
+
     xl362writeRegister(ACT_INACT_CTL,0x1F);//Link mode, reference based act/inact control
     xl362writeRegister(FILTER_CTL,0x03);// ODR = 100 Hz Range=2g
 //    xl362writeRegister(POWER_CTL,0x0E); // Wake up mode, autosleep, measure enable

@@ -73,7 +73,7 @@
 #include <ti/mw/display/Display.h>
 #include "Board.h"
 #include "opt3001.h"
-#include <tmp100.h> //olive
+#include <tmp100.h>
 #include "adxl362.h"
 
 #include "simple_broadcaster.h"
@@ -88,8 +88,9 @@
  */
 
 // What is the advertising interval when device is discoverable (units of 625us, 160=100ms)
-#define DEFAULT_ADVERTISING_INTERVAL          160
+//#define DEFAULT_ADVERTISING_INTERVAL          160
 
+#define DEFAULT_ADVERTISING_INTERVAL          3200 //2s
 // Task configuration
 #define SBB_TASK_PRIORITY                     1
 
@@ -394,10 +395,8 @@ static void SimpleBLEBroadcaster_init(void)
    }
   //Initialize devices
   OPT3001_initialize(&boardI2c);
-//  OPT3001_startMeasureContinious();
+  OPT3001_startMeasureContinious();
 
-//  SI705X_init(&boardI2c); //olive
-//  SI705X_getCurrentTemp();//olive
   TMP100_init(&boardI2c);
   //TMP100_getCurrentTemp();
 
@@ -411,6 +410,7 @@ static void SimpleBLEBroadcaster_init(void)
 
   boardSpi = SPI_open(Board_SPI, &spiParams);
   ADXL362_initialize(&boardSpi);
+  PIN_setOutputValue(&hLedPin, Board_RLED, Board_LED_OFF);
 
   //Start the Beacon update timer
 
@@ -441,7 +441,7 @@ static void SimpleBLEBroadcaster_taskFxn(UArg a0, UArg a1)
   for (;;)
   {
     // Get the ticks since startup
-    uint32_t tickStart = Clock_getTicks();
+   // uint32_t tickStart = Clock_getTicks();
 
     // Waits for a signal to the semaphore associated with the calling thread.
     // Note that the semaphore associated with a thread is signaled when a
@@ -543,14 +543,14 @@ static void SimpleBLEBroadcaster_processAppMsg(sbbEvt_t *pMsg)
         break;
     case SBB_ADXL_INT_EVT:
         if( adxl362_isAwake() ){
-            PIN_setOutputValue(&hLedPin, Board_RLED, Board_LED_ON);
+           // PIN_setOutputValue(&hLedPin, Board_RLED, Board_LED_ON);
             enableBeacon(TRUE);
             OPT3001_startMeasureContinious();
 
             Clock_start( &beaconUpdateClock);
 
         } else {
-            PIN_setOutputValue(&hLedPin, Board_RLED, Board_LED_OFF);
+            //PIN_setOutputValue(&hLedPin, Board_RLED, Board_LED_OFF);
             Clock_stop(&beaconUpdateClock);
             OPT3001_stopMeasure();
             enableBeacon(FALSE);
