@@ -43,6 +43,8 @@ Prevents versions can be retreived by selecting the appropriate tag on Github at
 
 Versions:
 
+Beta_HW_SW_Supported: Supported Hardware and Software for battery operation.  Manufactured 45 prototypes. aka SwiftMote IoT2021A
+
 Beta : Current KiCAD v5.1.9. In manufacturing.  Changes made to sensors and crystals in BoM due to covid chip shortages.  New firmware for TMP100 temperature sensor (replacement for SI7051 in alpha).  Manufacturing information included.
 
 Alpha : Initial version in Mentor Graphics PADS.  tested on a PCB, functional.
