@@ -1,0 +1,37 @@
+
+Tools required
+==============
+
+1. Code Composer Studio ver 7.4.0 or above
+2. Simplelink BLE_SDK Ver 2.2.0.31. (Use the same version of BLE_SDK stack as newer version will need code migration)
+3. TI RTOS - Use the TI RTOS installation integrated in the BLE_SDK installation
+
+Steps to Develop
+=================
+1. Install CCS, BLE_SDK in the default location of c:\ti
+2. Open CCS and import the projects (both *_app & *_stack) to your workspace
+3. Compile the stack project first
+4. Compile the app project next
+5. Program the MCU with stack project first and then app project, if you are debugging from CCS
+6. If programming from Flash Programmer 2, you need to flash both app and stack simultaneously
+
+Code Structure
+===============
+1. The directory contains two CCS project	
+	BLEsensor_cc2650lp_app
+	BLEsensor_cc2650lp_stack
+2. Stack project holds only the BLE stack configuration. More details can be found in TI website
+3. App project is based on TI example of "SimpleBroadCaster"
+4. Each of the senor has a driver files *.h & *.c available in BSP_Drivers folder
+		adxl362.h	--	Accelerometer driver header
+		adxl362.c	--	Accelerometer driver source
+		opt3001.h	--	Optical sensor driver header
+		opt3001.c	--	Optical sensor driver source
+		tmp100.h	--	Temperature sensor driver header
+		tmp100.c	--	Temperature sensor driver source
+		bspBoard.h	--	Sensor board pin mapping header
+		bspBoard.c	--	Sensor board RTOS driver initialization
+		Board.h		--	Top level board definition 
+5. Application folder contains the main firmware application
+		simple_broadcaster.h 	-- Header file for the application
+		simple_broadcaster.c 	-- Source file for the application
